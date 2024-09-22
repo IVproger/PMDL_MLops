@@ -20,7 +20,7 @@ def image_predprocessing(img: np.array):
 
 def make_prediction(img):
     num_classes = 2
-    model_path = '../models/baseline_chest_xray.pth'
+    model_path = './models/baseline_chest_xray.pth'
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
