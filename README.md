@@ -1,4 +1,3 @@
-Here’s an effective README file for your project:
 
 ---
 
