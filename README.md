@@ -39,12 +39,6 @@ After model training and validation, the solution is deployed using **Gradio** a
     pip install -Ur requirements.txt
     ```
 
-3. **Run the Gradio Interface**:
-    Once everything is set up, you can launch the Gradio interface locally:
-    ```bash
-    python app.py
-    ```
-
 ### Docker Setup
 
 1. **Build Docker Image**:
