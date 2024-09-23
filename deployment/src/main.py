@@ -5,6 +5,15 @@ from PIL import Image
 from src.model import SimpleVGG
 
 def image_predprocessing(img: np.array):
+    # Ensure the numpy array is in the format (H, W, C)
+    if img.ndim == 3 and img.shape[2] == 1:
+        img = np.squeeze(img, axis=2)
+    elif img.ndim == 2:
+        img = np.expand_dims(img, axis=2)
+    
+    # Convert image to uint8 if it's not already
+    if img.dtype != np.uint8:
+        img = img.astype(np.uint8)
     
     transform = transforms.Compose([
         transforms.Resize((256, 256)),

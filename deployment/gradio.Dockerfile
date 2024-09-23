@@ -10,15 +10,6 @@ COPY deployment_requirements.txt .
 # Install all dependencies from requirements.txt
 RUN pip3 install -Ur deployment_requirements.txt 
 
-# Install PyTorch and related packages
-RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-
-# Copy the src folder into the container at /app/src
-COPY src ./src
-
-# Copy the model folder into the container at /app/models
-COPY models ./models
-
 # Copy the gradio_app.py file into the container at /app
 COPY gradio_app.py .
 

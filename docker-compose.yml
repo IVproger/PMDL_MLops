@@ -1,12 +1,30 @@
 version: '3.8'
 
 services:
+  fastapi-app:
+    build:
+      context: ./deployment
+      dockerfile: api.Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+    volumes:
+      - ./deployment:/app
+    command: bash -c "python3 app.py"
+
   gradio-app:
     build:
       context: ./deployment
       dockerfile: gradio.Dockerfile
     ports:
       - "7860:7860"
+    networks:
+      - app-network
     volumes:
       - ./deployment:/app
-    command: bash -c "python gradio_app.py"
+    command: bash -c "python3 gradio_app.py"
+
+networks:
+  app-network:
+    driver: bridge
