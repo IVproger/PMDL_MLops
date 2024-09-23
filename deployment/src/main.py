@@ -11,9 +11,8 @@ def image_predprocessing(img: np.array):
         transforms.ToTensor(),
     ])
     
-    # Convert numpy array to PIL Image
+    # Convert numpy array to PIL Image 
     img = Image.fromarray(img).convert('RGB')
-    
     image_tensor = transform(img).unsqueeze(0) 
     
     return image_tensor
@@ -34,7 +33,4 @@ def make_prediction(img):
         output = model(image_tensor.to(device))
         prediction = torch.argmax(output, dim=1).item()
     
-    if prediction == 1:
-        return "has pneumonia"
-    else:
-        return "is healthy"
+    return "has pneumonia" if prediction == 1 else "is healthy"
