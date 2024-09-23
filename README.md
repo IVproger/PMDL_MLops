@@ -41,14 +41,15 @@ After model training and validation, the solution is deployed using **Gradio** a
 
 ### Docker Setup
 1. **Model installation**
+   
     Make sure that before the building of docker images, you installed the model pth file and put it inside the `deployment/models` folder.
 
-2. **Build Docker Image**:
+3. **Build Docker Image**:
     ```
     docker-compose build
     ```
 
-3. **Run Docker Container**:
+4. **Run Docker Container**:
     ```
     docker-compose up
     ```
